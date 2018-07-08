@@ -1,0 +1,6 @@
+Existe tabela ENTRADA na qual mantem registos com quantidades (disponivel, de venda, que saio
+que entrou/inicial) de cada produto
+existem outros registos de entrada que contem actualizacoes (de preco, serie e quantidade
+inicial de um outro registo). Esses outros registos de actualizacoes contem atributo 'dataref'
+que contem a referencia de um outro registo de entrada, possuindo a mesma serie com a do
+registo referenciado

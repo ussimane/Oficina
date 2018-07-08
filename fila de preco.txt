@@ -1,0 +1,45 @@
+Controlar as datas de expriracao
+Quando expirar pode-se apagar
+
+
+Ao introduzir saida, criar ou editar fila de precos   ou colocar um atributo na tabela saida que controla se
+                                                     esta ser usado
+
+Fila de precos
+
+getlista de saidas ordenadas por data
+ total de saidas quant
+
+
+datasaida qtd   preco dataexp
+ddd        2            dddd
+ddd        3            dddd
+ddd        4            dddd
+ somar preco total 9
+
+
+
+
+ao vender descontar na fila de precos
+fila1.preco > t vendido
+t vendido - fila1.p
+remove
+
+else
+t vendido - fila1.p
+
+ate t vendido = 0
+
+ao seleccionar
+fila1.preco > t sel
+t sel - fila1.p
+remove
+
+else
+t sel - fila1.p
+
+ate t sel = 0
+
+i
+
+

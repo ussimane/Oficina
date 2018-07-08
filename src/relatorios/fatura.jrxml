@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fatura" language="groovy" pageWidth="186" pageHeight="603" columnWidth="186" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="322"/>
+	<parameter name="img" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="org" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tel" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nif" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="end" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fatura" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="data" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cli" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nuit" class="java.lang.String">
+		<defaultValueExpression><![CDATA["----------"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ven" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tiv" class="java.lang.Float">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tde" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tvp" class="java.lang.Float">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="precovenda" class="java.lang.Float">
+		<fieldDescription><![CDATA[precovenda]]></fieldDescription>
+	</field>
+	<field name="qtdvenda" class="java.lang.Integer">
+		<fieldDescription><![CDATA[qtdvenda]]></fieldDescription>
+	</field>
+	<field name="idimposto" class="modelo.Imposto">
+		<fieldDescription><![CDATA[idimposto]]></fieldDescription>
+	</field>
+	<field name="codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[codigo]]></fieldDescription>
+	</field>
+	<variable name="total" class="java.lang.Float">
+		<variableExpression><![CDATA[$F{precovenda}*$F{qtdvenda}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Float(0)]]></initialValueExpression>
+	</variable>
+	<variable name="totalprod" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{precovenda}*$F{qtdvenda}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Float(0)]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="180" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="20" width="157" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{org}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="31" width="157" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{end}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="42" width="157" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["NUIT: "+$P{nif}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="54" width="157" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Tel.: "+$P{tel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="66" width="157" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{cid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="127" width="67" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Venda a dinheiro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="108" width="42" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Factura nr. ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="66" y="108" width="81" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{fatura}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="66" height="20"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{img}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="78" width="34" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Cliente: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="89" width="34" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ Nuit: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="139" width="67" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm").format($P{data})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="73" y="139" width="74" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{ven}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="1" y="147" width="157" height="17"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ ------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="157" width="157" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[   Cod    Qtd.   Pr. Unit    IVA(%)    Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="163" width="157" height="17"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ ------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="34" y="78" width="123" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{cli}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="89" width="123" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{nuit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="156" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="12" width="23" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{qtdvenda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="12" width="29" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{precovenda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="12" width="31" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[""+$F{idimposto}.perc+"%"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="12" width="29" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="12" width="29" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="57" splitType="Stretch">
+			<textField>
+				<reportElement x="43" y="0" width="30" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$P{tiv}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="0" width="42" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Total IVA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="0" width="42" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SubTotal:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="115" y="0" width="32" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$V{totalprod}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="78" y="11" width="37" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[T. Desc:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="115" y="11" width="32" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tde}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="78" y="23" width="37" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="115" y="23" width="32" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$P{tvp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="38" width="117" height="19"/>
+				<box>
+					<bottomPen lineWidth="0.25" lineStyle="Dotted"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Processado por computador]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>
